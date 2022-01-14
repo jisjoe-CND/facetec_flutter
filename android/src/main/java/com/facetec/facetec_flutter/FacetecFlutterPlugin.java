@@ -46,15 +46,15 @@ public class FacetecFlutterPlugin implements FlutterPlugin, MethodCallHandler {
         if (call.method.equals("getPlatformVersion")) {
             result.success("Android " + android.os.Build.VERSION.RELEASE);
         } else if (call.method.equals("initialize")) {
-            FaceTecSDK.initializeInDevelopmentMode(this, DeviceKeyIdentifier, PublicFaceScanEncryptionKey,
-                    new FaceTecSDK.InitializeCallback() {
-                        @Override
-                        public void onCompletion(final boolean successful) {
-                            if (successful) {
-                                Log.d("FaceTecSDKSampleApp", "Initialization Successful.");
-                            }
-                        }
-                    });
+//            FaceTecSDK.initializeInDevelopmentMode(this, DeviceKeyIdentifier, PublicFaceScanEncryptionKey,
+//                    new FaceTecSDK.InitializeCallback() {
+//                        @Override
+//                        public void onCompletion(final boolean successful) {
+//                            if (successful) {
+//                                Log.d("FaceTecSDKSampleApp", "Initialization Successful.");
+//                            }
+//                        }
+//                    });
         } else {
             result.notImplemented();
         }
