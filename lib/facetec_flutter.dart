@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:flutter/services.dart';
@@ -16,8 +15,13 @@ class FacetecFlutter {
     return result;
   }
 
-  static Future<String?> initialize(String appToken) async {
-    final String? result = await _channel.invokeMethod('initialize', [appToken]);
+  static Future<String?> initialize(String deviceKeyIdentifier) async {
+    final String? result = await _channel.invokeMethod('initialize', [deviceKeyIdentifier]);
+    return result;
+  }
+
+  static Future<String?> idCheck(String userId) async {
+    final String? result = await _channel.invokeMethod('idCheck', [userId]);
     return result;
   }
 }
