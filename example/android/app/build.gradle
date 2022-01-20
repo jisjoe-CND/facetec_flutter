@@ -61,5 +61,6 @@ flutter {
 
 dependencies {
     implementation 'com.android.support:multidex:1.0.3'
+    implementation files('facetec/facetec-sdk-9.4.4.aar')
 }
 

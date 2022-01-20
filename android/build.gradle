@@ -43,8 +43,8 @@ dependencies {
 //    implementation fileTree(include: ['*.aar'], dir: 'facetec')
 //    implementation 'com.facetec:facetec-sdk:9.4.4@aar'
 //    implementation files('facetec/facetec-sdk-9.4.4.aar')
-//    compileOnly files('facetec/facetec-sdk-9.4.4.aar')
-    implementation project(':facetec')
+    compileOnly files('facetec/facetec-sdk-9.4.4.aar')
+//    implementation project(':facetec')
     testImplementation 'junit:junit:4.12'
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.code.gson:gson:2.8.6'
