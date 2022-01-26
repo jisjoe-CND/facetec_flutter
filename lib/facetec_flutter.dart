@@ -20,8 +20,13 @@ class FacetecFlutter {
     return result;
   }
 
-  static Future<String?> idCheck(String userId) async {
-    final String? result = await _channel.invokeMethod('idCheck', [userId]);
+  static Future<String?> idCheck() async {
+    final String? result = await _channel.invokeMethod('idCheck');
+    return result;
+  }
+
+  static Future<String?> livenessCheck() async {
+    final String? result = await _channel.invokeMethod('livenessCheck');
     return result;
   }
 }

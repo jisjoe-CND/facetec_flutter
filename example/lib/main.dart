@@ -40,13 +40,24 @@ class _MyAppState extends State<MyApp> {
               TextButton(
                 onPressed: () async {
                   try {
-                    final res = await FacetecFlutter.idCheck('userID');
+                    final res = await FacetecFlutter.idCheck();
                     debugPrint('$res');
                   } catch (e) {
                     debugPrint(e.toString());
                   }
                 },
                 child: const Text('ID Check'),
+              ),
+              TextButton(
+                onPressed: () async {
+                  try {
+                    final res = await FacetecFlutter.livenessCheck();
+                    debugPrint('$res');
+                  } catch (e) {
+                    debugPrint(e.toString());
+                  }
+                },
+                child: const Text('Liveness check'),
               ),
             ],
           ),

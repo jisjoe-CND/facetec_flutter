@@ -30,7 +30,7 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
     private boolean faceScanWasSuccessful = false;
     private final FacetecFlutterPlugin sampleAppActivity;
 
-    public PhotoIDMatchProcessor(String sessionToken, Context context,FacetecFlutterPlugin plugin) {
+    public PhotoIDMatchProcessor(String sessionToken, Context context, FacetecFlutterPlugin plugin) {
         this.sampleAppActivity = plugin;
 
         // In v9.2.2+, configure the messages that will be displayed to the User in each of the possible cases.

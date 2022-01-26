@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Context;
 
 import Processors.Config;
+import Processors.LivenessCheckProcessor;
 import Processors.Processor;
 import Processors.NetworkingHelpers;
 import Processors.PhotoIDMatchProcessor;
@@ -91,7 +92,14 @@ public class FacetecFlutterPlugin implements FlutterPlugin, MethodCallHandler, A
             }
         } else if (call.method.equals("idCheck")) {
             try {
-                idCheck(call.arguments);
+                idCheck();
+            } catch (JSONException e) {
+                e.printStackTrace();
+
+            }
+        } else if (call.method.equals("livenessCheck")) {
+            try {
+                livenessCheck();
             } catch (JSONException e) {
                 e.printStackTrace();
 
@@ -159,7 +167,20 @@ public class FacetecFlutterPlugin implements FlutterPlugin, MethodCallHandler, A
         });
     }
 
-    private void idCheck(Object args) throws JSONException {
+    private void livenessCheck() throws JSONException {
+        new Handler(Looper.getMainLooper()).post(() -> {
+            // Facetec id check
+            getSessionToken(new SessionTokenCallback() {
+                @Override
+                public void onSessionTokenReceived(String sessionToken) {
+                    isSessionPreparingToLaunch = false;
+                    latestProcessor = new LivenessCheckProcessor(sessionToken, activity, FacetecFlutterPlugin.this);
+                }
+            });
+        });
+    }
+
+    private void idCheck() throws JSONException {
 
         new Handler(Looper.getMainLooper()).post(() -> {
             // Facetec id check
